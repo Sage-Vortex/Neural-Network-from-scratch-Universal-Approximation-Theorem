@@ -50,3 +50,21 @@ class Adam:
     def zero_grad(self):
         for p in self.parameters:
             p.grad = 0.0 * p.grad
+
+# add to network/optimizer.py
+
+class SGDMomentum:
+    def __init__(self, parameters, lr=0.01, momentum=0.9):
+        self.parameters = parameters
+        self.lr = lr
+        self.momentum = momentum
+        self.velocity = [np.zeros_like(p.data) for p in parameters]
+
+    def step(self):
+        for i, p in enumerate(self.parameters):
+            self.velocity[i] = self.momentum * self.velocity[i] - self.lr * p.grad
+            p.data += self.velocity[i]
+
+    def zero_grad(self):
+        for p in self.parameters:
+            p.grad = 0.0 * p.grad
