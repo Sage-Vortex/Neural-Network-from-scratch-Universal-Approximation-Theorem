@@ -1,4 +1,4 @@
-````markdown
+
 # Neural Network Implementing the Universal Approximation Theorem from Scratch Using Only NumPy
 
 This project builds a feedforward neural network entirely from scratch using only **NumPy** — no PyTorch or TensorFlow for the implementation — to experimentally study the **Universal Approximation Theorem (UAT)**.
